@@ -19,7 +19,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "*",
   credentials: true,
 }));
 app.use(express.json());
@@ -35,10 +35,7 @@ app.get("/", (req, res) => {
   res.send(" API is working at root route!");
 });
 
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log(" MongoDB connected successfully"))
   .catch((err) => {
     console.error(" MongoDB connection error:", err);
