@@ -19,8 +19,8 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 app.use(cors({
-  origin: "https://clothys.netlify.app", // 🔒 specific allowed origin
-  credentials: true
+  origin: "*"
+ 
 }));
 app.use(express.json());
 
